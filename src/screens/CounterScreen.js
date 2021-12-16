@@ -5,16 +5,19 @@ const ACTION_DECREASE = "decrease";
 const reducer = (state, action) => {
   switch (action.type) {
     case "increase":
-      return state + 1;
+      return { ...state, count: state.count + 1 };
     case "decrease":
-      return state - 1 < 0 ? 0 : state - 1;
+      return state.count - 1 < 0
+        ? { ...state, count: 0 }
+        : { ...state, count: state.count - 1 };
     default:
       return state;
   }
 };
 
 const CounterScreen = () => {
-  const [state, dispatch] = useReducer(reducer, 0);
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+  const { count } = state;
   return (
     <View>
       <Button
@@ -25,7 +28,7 @@ const CounterScreen = () => {
         title="Decrease"
         onPress={() => dispatch({ type: ACTION_DECREASE })}
       />
-      <Text style={styles.text}>Current Count: {state}</Text>
+      <Text style={styles.text}>Current Count: {count}</Text>
     </View>
   );
 };
