@@ -13,24 +13,23 @@ const styles = StyleSheet.create({
     viewStyle: {
         borderWidth: 2, 
         borderColor: "black",
-        flexDirection: 'row',
-        // alignItems: "center",
+        // flexDirection: 'row',
+        alignItems: "flex-end",
         height: 200,
         // justifyContent: 'center'
     },
     textOneStyle: {
         borderWidth: 3,  
-        flex: 2,
         borderColor: "red",
+        alignSelf: 'flex-start'
     },
     textTwoStyle: {
         borderWidth: 3,  
-        flex: 3,
         borderColor: "red",
+        alignSelf: 'center'
     },
     textThreeStyle: {
         borderWidth: 3,  
-        flex: 2,
         borderColor: "red",
     }
 });
